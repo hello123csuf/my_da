@@ -1,0 +1,48 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Aug 11 10:45:18 2016
+
+@author: joshua.lee
+"""
+
+import wikipedia
+import wolframalpha
+
+
+print('Hi!  I am AI.  I was created by Joshua.  Go ahead type in what you want to know:')
+
+while True:
+    mySearch = input() 
+    try:
+    
+            app_id = "2A35GT-T5PT267LX7"
+            client = wolframalpha.Client(app_id)
+        
+            res = client.query(mySearch)
+            answer = next(res.results).text
+            print(answer)
+
+            break
+
+    except:
+            wikipedia.search('mySearch')
+            
+            print (wikipedia.summary(mySearch))
+            break
+    else:
+            print('I am sorry, but I do not compute your entry.  Please try again.')
+
+
+            break
+
+
+
+"""
+import wolframalpha
+print ('Please enter your question:')
+app_id = "2A35GT-T5PT267LX7"
+client = wolframalpha.Client(app_id)
+mySearch = input()
+res = client.query(mySearch)
+answer = next(res.results).text
+print(answer)"""
